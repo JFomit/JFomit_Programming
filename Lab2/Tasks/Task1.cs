@@ -4,7 +4,7 @@ namespace _453501_Забережный.Lab2.Tasks;
 
 internal class Task1 : IRunnableTask
 {
-    public string Name => "Task1";
+    public string Name => "Задание 1";
     public string Description => "Вычисляет, кратна ли трем сумма цифр двухзначного числа.";
     
     public void Run()
