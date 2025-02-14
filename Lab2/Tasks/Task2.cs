@@ -14,10 +14,10 @@ public class Task2 : IRunnableTask
             return;
         }
 
-        var response = (point.Y.CompareTo(12), point.Y.CompareTo(Math.Abs(point.X))) switch
+        var response = (point.Y - 12, point.Y - Math.Abs(point.X)) switch
         {
             (0, _) or (_, 0) => "На границе",
-            (< 0, > 0) => "Да",
+            ( < 0, > 0) => "Да",
             _ => "Нет"
         };
 
