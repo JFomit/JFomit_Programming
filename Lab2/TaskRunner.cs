@@ -6,8 +6,13 @@ namespace _453501_Забережный.Lab2;
 
 internal class TaskRunner(params IRunnableTask[] tasks)
 {
+    /// <summary>
+    /// 
+    /// </summary>
     private TaskOption[] Tasks { get; } = tasks.Select(task => new TaskOption(task)).ToArray();
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void Run()
     {
         while (true)

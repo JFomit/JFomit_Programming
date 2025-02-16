@@ -5,7 +5,13 @@ internal static class ConsoleMenu
     public static ConsoleMenu<T>.Builder CreateBuilder<T>(params T[] variants)
         where T : IMenuOption => new(variants);
 }
-
+/// <summary>
+/// 
+/// </summary>
+/// <param name="header"></param>
+/// <param name="footer"></param>
+/// <param name="variants"></param>
+/// <typeparam name="T"></typeparam>
 internal ref struct ConsoleMenu<T>(string? header, string? footer, ReadOnlySpan<T> variants)
     where T : IMenuOption
 {
