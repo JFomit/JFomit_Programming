@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Task = _453501_Забережный.Lab4.Task;
+
+Task.Run();
