@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using _453501_Забережный.Lab5;
+using JFomit.Functional;
+using JFomit.Functional.Extensions;
 
-Console.WriteLine("Hello, World!");
+var shop = new Shop();
+
+shop.AddProduct(new Product("TV", 1000)).Unwrap();
+shop.AddProduct(new Product("Fridge", 2000)).Unwrap();
+
+shop.RegisterCustomer(new Customer("Ivan"));
+shop.RegisterCustomer(new Customer("Jitter", CustomerStatus.Vip));
