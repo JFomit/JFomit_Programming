@@ -8,12 +8,18 @@ using static JFomit.Functional.Prelude;
 
 public class Shop
 {
-    private readonly HashSet<Product> _products = [];
-
+    private readonly Dictionary<string, decimal> _products = [];
     private readonly Dictionary<Customer, List<Order>> _placedOrders = [];
 
+    public IEnumerable<Product> Products => _products.Select(kv => new Product(kv.Key, kv.Value));
+
     public Result<Unit, string> AddProduct(Product product)
-        => _products.Contains(product) ? Error("Can't add the same product twice.") : Ok();
+        => _products.TryAdd(product.Name, product.Price)
+        ? Ok()
+        : Error("Can't add the same product twice.");
+
+    public Result<Unit, string> AddProduct(string name, decimal price)
+        => AddProduct(new Product(name, price));
     public Result<Unit, string> PlaceOrder(Customer customer, Order order)
     {
         if (_placedOrders.TryGetValue(customer, out var value))
@@ -23,6 +29,15 @@ public class Shop
         }
 
         return Error("Customer must register first.");
+    }
+    public Result<Unit, string> PlaceOrder(string surname, string product)
+    {
+        if (!_products.TryGetValue(product, out var price))
+        {
+            return Error($"Product `{product}' not found.");
+        }
+
+        return PlaceOrder(new Customer(surname), new Order(new Product(product, price)));
     }
 
     public Result<Unit, string> RegisterCustomer(Customer customer)
@@ -38,7 +53,7 @@ public class Shop
                 .Select(
                     list => list.Select(i => i.Product)
                 );
-    public Result<IEnumerable<Product>, string> GetPlacvedOrders(string surname)
+    public Result<IEnumerable<Product>, string> GetPlacedOrderProducts(string surname)
         => GetPlacedOrders(new Customer(surname));
     public Result<decimal, string> GetPlacedCost(Customer customer)
         => _placedOrders
