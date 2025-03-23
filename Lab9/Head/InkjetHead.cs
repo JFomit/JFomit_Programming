@@ -6,6 +6,6 @@ class InkjetHead : IPrintingHead
 {
     public void Print(PaperFormat paper)
     {
-
+        Console.WriteLine("Inkjet Head: Spray!");
     }
 }

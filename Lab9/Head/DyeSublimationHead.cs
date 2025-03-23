@@ -2,10 +2,10 @@ using _453501_Забережный.Lab9.Paper;
 
 namespace _453501_Забережный.Lab9.Head;
 
-class LaserHead : IPrintingHead
+class DyeSublimationHead : IPrintingHead
 {
     public void Print(PaperFormat paper)
     {
-        Console.WriteLine("Laser Head: Zap-zap!");
+        Console.WriteLine("Dye-Sublimation Head: H.E.A.T.");
     }
 }

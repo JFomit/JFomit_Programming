@@ -1,14 +1,13 @@
 using _453501_Забережный.Lab9.Paper;
 using _453501_Забережный.Lab9.Head;
-using JFomit.Functional.Monads;
-using Unit = JFomit.Functional.UnitValue;
 
 namespace _453501_Забережный.Lab9.Printer;
 
 internal abstract class Printer(IPrintingHead head)
 {
-    public IPrintingHead Head { get; } = head;
+    protected IPrintingHead Head { get; } = head;
+    public abstract PrinterModel Model { get; }
+    public PrinterModel GetInfo() => Model;
 
-    public abstract PrinterModel GetInfo();
-    public abstract Result<Unit, string> Print(PaperFormat paper);
+    public abstract void Print(PaperFormat paper);
 }

@@ -8,8 +8,4 @@
     <RootNamespace>_453501_Забережный.Lab9</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="JFomit.Functional" Version="2.1.2" />
-  </ItemGroup>
-
 </Project>
