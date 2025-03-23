@@ -1,7 +1,7 @@
 using _453501_Забережный.Lab9.Paper;
 using _453501_Забережный.Lab9.Head;
 
-namespace _453501_Забережный.Lab9.Printer;
+namespace _453501_Забережный.Lab9;
 
 internal abstract class Printer(IPrintingHead head)
 {
