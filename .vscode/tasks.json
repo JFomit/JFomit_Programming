@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Lab5/Lab5.csproj",
+                "${workspaceFolder}/Lab9/Lab9.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Lab5/Lab5.csproj",
+                "${workspaceFolder}/Lab9/Lab9.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Lab5/Lab5.csproj"
+                "${workspaceFolder}/Lab9/Lab9.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
