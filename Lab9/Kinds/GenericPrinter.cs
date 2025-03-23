@@ -3,26 +3,19 @@ using _453501_Забережный.Lab9.Paper;
 
 namespace _453501_Забережный.Lab9.Kinds;
 
-class GenericPrinter(
-    IPrintingHead head,
-    string name
-) : Printer(head)
+class GenericPrinter(IPrintingHead head) : Printer(head), IStandardPrinter
 {
-    public string Name { get; } = name;
-
-    public override PrinterModel Model => new()
+    public override void GetInfo()
     {
-        ModelName = Name
-    };
-    public override string ToString()
-        => FormattedName();
+        Console.WriteLine($"This is a your standard printer, version {Revision}, model name {GetFormattedName()}");
+    }
 
-    private string FormattedName()
-        => $"Generic {Name}";
+    private string GetFormattedName() => Name.UnwrapOr("Generic");
 
-    public override void Print(PaperFormat paper)
+    public void Print(PaperFormat paper)
     {
-        Console.WriteLine($"{FormattedName()}: printing on {paper} paper.");
+        Console.WriteLine($"{GetFormattedName()}: printing on {paper} paper.");
         Head.Print(paper);
     }
+    public override void Accept(IKindVisitor visitor) => visitor.Visit(this);
 }
